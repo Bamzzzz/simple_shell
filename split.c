@@ -6,26 +6,29 @@
  */
 char **separator(char *input)
 {
+char **commands;
+int i;
+char *command;
 int buffsize = BUFSIZE;
 
-char *command;
-
-if (input[0] == ' ' && input[strlen(input)] == ' ')
+if (input[0] == ' ' && input[_strlen(input)] == ' ')
 exit(0);
 if (input == NULL)
 return (NULL);
-command = malloc(sizeof(char *) * buffsize);
-if (!command)
+commands = malloc(sizeof(char *) * buffsize);
+if (!commands)
 {
-free(command);
+free(commands);
 perror("hsh");
 return (NULL);
 }
 command = _strtok(input, ";&");
+for (i = 0; command; i++)
 {
+commands[i] = command;
 command = _strtok(NULL, ";&");
 }
-command = NULL;
-return (NULL);
-}
+commands[i] = NULL;
 
+return (commands);
+}

@@ -1,5 +1,27 @@
 #include "shell.h"
 /**
+ * _strdup - duplicate a string
+ * @str: string
+ * Return: duplicated string 0 if failed
+ */
+char *_strdup(char *str)
+{
+size_t len, i;
+char *str2;
+
+len = _strlen(str);
+str2 = malloc(sizeof(char) * (len + 1));
+if (!str2)
+{
+return (NULL);
+}
+for (i = 0; i <= len; i++)
+{
+str2[i] = str[i];
+}
+return (str2);
+}
+/**
  * _strcat - strings to be concentrated
  * @dest: the destination of string
  * @src: the string source
