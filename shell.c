@@ -1,5 +1,3 @@
-shell.c
-
 #include "shell.h"
 /**
  * main - Entry point to program
