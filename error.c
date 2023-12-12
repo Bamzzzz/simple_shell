@@ -9,6 +9,7 @@
 void print_error(char *input, int counter, char **argv)
 {
 char *er;
+
 PRINT(argv[0]);
 PRINT(": ");
 er = _itoa(counter);
@@ -26,12 +27,13 @@ PRINT(": ");
 void _prerror(char **argv, int c, char **cmd)
 {
 char *er = _itoa(c);
+
 PRINT(argv[0]);
 PRINT(": ");
 PRINT(er);
 PRINT(": ");
 PRINT(cmd[0]);
-PRINT(": Illegal number: ");
+PRINT(": Unwanted  number: ");
 PRINT(cmd[1]);
 PRINT("\n");
 free(er);

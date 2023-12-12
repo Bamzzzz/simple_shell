@@ -2,26 +2,36 @@
 /**
  * parse_cmd - Parses the command
  * @input: string input gathered
- * Return: Parsed strings to be used as arguments
+ * Return: return strings to be used as arguments
  */
 char **parse_cmd(char *input)
 {
 int i;
-char **argv;
+char **arguments;
+char *argument;
 int buffsize = BUFSIZE;
 
-if (input[0] == ' ' && input[strlen(input)] == ' ')
+if (input[0] == ' ' && input[_strlen(input)] == ' ')
 exit(0);
 if (input == NULL)
 return (NULL);
-argv = malloc(sizeof(char *) * buffsize);
-if (!argv)
+arguments = malloc(sizeof(char *) * buffsize);
+if (!arguments)
 {
-free(argv);
+free(arguments);
 perror("hsh");
 return (NULL);
 }
-for (i = 0; argv; i++)
-argv[i] = NULL;
-return (argv);
+argument = _strtok(input, "\n\t\r\a ");
+for (i = 0; argument; i++)
+{
+arguments[i] = argument;
+argument = _strtok(NULL, "\n\t\r\a ");
 }
+arguments[i] = NULL;
+
+return (arguments);
+}
+
+
+

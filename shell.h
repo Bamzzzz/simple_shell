@@ -1,11 +1,8 @@
 #ifndef SHELL_H
 #define SHELL_H
-/***** MACROS *****/
 #define PRINT(c) (write(STDERR_FILENO, c, strlen(c)))
 #define BUFSIZE 10240
 #define DELIMITER " \t\r\n\a"
-
-/*** STANDARD LIBRARIES ***/
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/types.h>
@@ -17,8 +14,6 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <linux/limits.h>
-
-/*** STRING FUNCTIONS ***/
 
 char *_strncpy(char *dest, char *src, int n);
 int _putchar(char c);
@@ -34,19 +29,12 @@ char *_strcpy(char *dest, char *src);
 char *_strchr(char *s, char c);
 int _strncmp(const char *s1, const char *s2, size_t n);
 int _strlen(char *s);
-
-
-/*** MEMORY FUNCTION ***/
-
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void free_all(char **input, char *line);
 void free_env(char **env);
 void *fill_an_array(void *a, int el, unsigned int len);
 char *_memcpy(char *dest, char *src, unsigned int n);
 void *_calloc(unsigned int size);
-
-/*** MISCELLANEOUS INPUT FUNCTIONS ***/
-
 char *_getline();
 char *space(char *str);
 char *enter(char *string);
@@ -56,46 +44,25 @@ int history(char *input);
 char **separator(char *input);
 void hashtag_handler(char *buff);
 void prompt(void);
-
-/*** FILE ARGUMENT FUNCTIONS ***/
-
 void read_file(char *file, char **argv);
 void treat_file(char *line, int count, FILE *fp, char **argv);
 void exit_bul_for_file(char **cmd, char *line, FILE *fd);
-
-/*** PARSED ARGUMENT FUNCTIONS ***/
-
 char **parse_cmd(char *input);
 int handle_builtin(char **cmd, int er);
 int check_cmd(char **cmd, char *input, int c, char **argv);
 void signal_to_handle(int sig);
-
-/*** ERROR FUNCTIONS ***/
-
 void print_error(char *input, int counter, char **argv);
 void _prerror(char **argv, int c, char **cmd);
 void error_file(char **argv, int c);
-
-/*** ENVIRONMENT FUNCTIONS ***/
-
 extern char **environ;
 void create_envi(char **envi);
 void free_env(char **env);
-
-/*** PRINTING FUNCTIONS ***/
-
 void print_number(unsigned int n);
 void print_number_int(int n);
 int print_echo(char **cmd);
-
-/*** PATH FUNCTIONS ***/
-
 int path_cmd(char **cmd);
 char *build(char *token, char *value);
 char *_getenv(char *name);
-
-/*** HELP FUNCTIONS ***/
-
 void help_env(void);
 void help_setenv(void);
 void help_all(void);
@@ -106,9 +73,6 @@ void help_help(void);
 int display_help(char **cmd, __attribute__((unused))int st);
 void help_unsetenv(void);
 void help_history(void);
-
-/*** BUILTIN COMMAND AND EXECUTE ***/
-
 int check_builtin(char **cmd);
 int handle_builtin(char **cmd, int st);
 void exit_bul(char **cmd, char *input, char **argv, int c, int stat);

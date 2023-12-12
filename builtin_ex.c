@@ -2,13 +2,14 @@
 /**
  * change_dir - change in directory
  * @cmd: command
- * @st: status of last command executed
+ * @st: status of executed last command
  * Return: 0 on success 1 if failed
  */
 int change_dir(char **cmd, __attribute__((unused))int st)
 {
 int value = -1;
 char cwd[PATH_MAX];
+
 if (cmd[1] == NULL)
 value = chdir(getenv("HOME"));
 else if (_strcmp(cmd[1], "-") == 0)
@@ -39,12 +40,13 @@ return (0);
  */
 int history_dis(__attribute__((unused))char **c, __attribute__((unused))int st)
 {
-char *filename = "simple_shell_history code";
+char *filename = "simple_shell code";
 int counter = 0;
 FILE *fp;
 char *line = NULL;
 char *er;
 size_t len = 0;
+
 fp = fopen(filename, "r");
 if (fp == NULL)
 {
@@ -65,15 +67,16 @@ fclose(fp);
 return (0);
 }
 /**
- * dis_env - display enviroment variable
+ * dis_env - display variable environment
  * @cmd: command
- * @st: status of last command executed
+ * @st: status of executed last command
  * Return: Always 0
  */
 int dis_env(__attribute__((unused)) char **cmd, __attribute__((unused)) int st)
 {
 int len;
 size_t i;
+
 for (i = 0; environ[i] != NULL; i++)
 {
 write(1, environ[i], len);
@@ -98,8 +101,12 @@ if (_strncmp(cmd[1], "$?", 2) == 0)
 print_number_int(st);
 PRINT("\n");
 }
+else if (_strncmp(cmd[1], "$$", 2) == 0)
+{
 PRINT("\n");
 print_number(pid);
+}
+else if (_strncmp(cmd[1], "$PATH", 5) == 0)
 {
 path = _getenv("PATH");
 PRINT(path);

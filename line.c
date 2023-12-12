@@ -1,12 +1,13 @@
 #include "shell.h"
 /**
  * hashtag_handler - function that removes everything after '#' or '$' sysmbol
- * @buff: input buffer
+ * @buff: buffer
  * Return: nothing
  */
 void hashtag_handler(char *buff)
 {
 int i;
+
 for (i = 0; buff[i] != '\0'; i++)
 {
 if (buff[i] == '#' && buff[i - 1] == ' ' && buff[i + 1] == ' ')
@@ -16,7 +17,7 @@ buff[i] = '\0';
 }
 }
 /**
- * enter - enter newline character input
+ * enter - enter new line character input
  * @string: string to be handled in character
  * Return: Empty string
  */
@@ -33,6 +34,7 @@ char *_getline()
 {
 char c = 0, *buffer, *buf;
 int i, rd, buffsize = BUFSIZE;
+
 buffer = malloc(buffsize);
 if (buffer == NULL)
 {

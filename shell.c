@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
- * main - Entry point to program
- * @argc: Argument count
- * @argv: Argument
- * Return: Returns
+ * main - entry point
+ * @argc: argument count
+ * @argv: argument
+ * Return: return
  */
 int main(__attribute__((unused)) int argc, char **argv)
 {

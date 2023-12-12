@@ -1,10 +1,11 @@
 #include "shell.h"
 /**
- * help_all - displays all possible builtin shell commands
+ * help_all - display all the possible builtin shell command
  */
 void help_all(void)
 {
 char *msg = "shell\nshell commands are defined internally.\n";
+
 write(STDOUT_FILENO, msg, strlen(msg));
 msg = "type 'help' to see this list.\ntype 'help name' to find ";
 write(STDOUT_FILENO, msg, strlen(msg));
@@ -25,6 +26,7 @@ write(STDOUT_FILENO, msg, strlen(msg));
 void help_cd(void)
 {
 char *msg = "cd: cd [DIRECTORY]\n\tchange the current directory of the";
+
 write(STDOUT_FILENO, msg, strlen(msg));
 msg = " process to DIRECTORY.\n\n\tif no argument is given, the ";
 write(STDOUT_FILENO, msg, strlen(msg));
@@ -43,6 +45,7 @@ write(STDOUT_FILENO, msg, strlen(msg));
 void help_exit(void)
 {
 char *msg = "exit: exit [STATUS]\n\tExits the shell.\n\n\tThe ";
+
 write(STDOUT_FILENO, msg, strlen(msg));
 msg = "STATUS argument is the integer used to exit the shell.";
 write(STDOUT_FILENO, msg, strlen(msg));
@@ -57,6 +60,7 @@ write(STDOUT_FILENO, msg, strlen(msg));
 void help_help(void)
 {
 char *msg = "help: help\n\tSee all possible Shellby builtin commands.\n";
+
 write(STDOUT_FILENO, msg, strlen(msg));
 msg = "\n help [BUILTIN NAME]\n\tSee specific information on each ";
 write(STDOUT_FILENO, msg, strlen(msg));
@@ -64,11 +68,12 @@ msg = "builtin command.\n";
 write(STDOUT_FILENO, msg, strlen(msg));
 }
 /**
- * help_alias - display alias information on the shell by builtin command
+ * help_alias - display alias information on the shell builtin command
  */
 void help_alias(void)
 {
 char *msg = "alias: alias [NAME[='VALUE'] ...]\n\tHandles aliases.\n";
+
 write(STDOUT_FILENO, msg, strlen(msg));
 msg = "\n\talias: Prints a list of all aliases, one per line, in ";
 write(STDOUT_FILENO, msg, strlen(msg));

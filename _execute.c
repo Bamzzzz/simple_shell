@@ -1,6 +1,6 @@
 #include "shell.h"
 /**
- * check_cmd - check for commands in predefined path
+ * check_cmd - check for commands in code path
  * @cmd: array found in command strings
  * @input: to free input recieved from user
  * @c: execution function of Command Not Found
@@ -47,7 +47,7 @@ return (127);
 }
 
 /**
- * signal_to_handle - configures ^C not to terminate our shell
+ * signal_to_handle - configure ^C not to terminate shell
  * @sig: signal to handle
  */
 void signal_to_handle(int sig)

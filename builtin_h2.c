@@ -9,33 +9,6 @@ char *msg = "env: env\n\tPrints the current environment.\n";
 write(STDOUT_FILENO, msg, strlen(msg));
 }
 /**
- * help_setenv - displays setenv information on the shell
- */
-void help_setenv(void)
-{
-char *msg = "setenv: setenv [VARIABLE] [VALUE]\n\tInitializes a new";
-
-write(STDOUT_FILENO, msg, strlen(msg));
-msg = "environment variable, or modifies an existing one.\n\n";
-write(STDOUT_FILENO, msg, strlen(msg));
-msg = "\tUpon failure, prints a message to stderr.\n";
-write(STDOUT_FILENO, msg, strlen(msg));
-}
-/**
- * help_unsetenv - displays unsetenv information
- * 'unsetenv'
- */
-void help_unsetenv(void)
-{
-char *msg = "unsetenv: unsetenv [VARIABLE]\n\tRemoves an ";
-write(STDOUT_FILENO, msg, strlen(msg));
-msg = "environmental variable.\n\n\tUpon failure, prints a ";
-write(STDOUT_FILENO, msg, strlen(msg));
-msg = "message to stderr.\n";
-write(STDOUT_FILENO, msg, strlen(msg));
-}
-
-/**
  * display_help - display help for builtin command
  * @cmd: command
  * @st: status
@@ -60,4 +33,31 @@ help_cd();
 else if (_strcmp(cmd[1], "exit") == 0)
 help_exit();
 return (0);
+}
+/**
+ * help_setenv - displays setenv information on the shell
+ */
+void help_setenv(void)
+{
+char *msg = "setenv: setenv [VARIABLE] [VALUE]\n\tInitializes a new";
+
+write(STDOUT_FILENO, msg, strlen(msg));
+msg = "environment variable, or modifies an existing one.\n\n";
+write(STDOUT_FILENO, msg, strlen(msg));
+msg = "\tUpon failure, prints a message to stderr.\n";
+write(STDOUT_FILENO, msg, strlen(msg));
+}
+/**
+ * help_unsetenv - displays unsetenv information
+ * 'unsetenv'
+ */
+void help_unsetenv(void)
+{
+char *msg = "unsetenv: unsetenv [VARIABLE]\n\tRemoves an ";
+
+write(STDOUT_FILENO, msg, strlen(msg));
+msg = "environmental variable.\n\n\tUpon failure, prints a ";
+write(STDOUT_FILENO, msg, strlen(msg));
+msg = "message to stderr.\n";
+write(STDOUT_FILENO, msg, strlen(msg));
 }

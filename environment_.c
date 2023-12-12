@@ -6,6 +6,7 @@
 void create_envi(char **envi)
 {
 int i;
+
 for (i = 0; environ[i]; i++)
 envi[i] = NULL;
 }
@@ -16,6 +17,7 @@ envi[i] = NULL;
 void free_env(char **env)
 {
 int i;
+
 for (i = 0; env[i]; i++)
 {
 free(env[i]);

@@ -9,6 +9,7 @@ char *_getenv(char *name)
 int i, j, k;
 size_t name_len, value_len;
 char *value;
+
 name_len = strlen(name);
 for (i = 0 ; environ[i]; i++)
 {

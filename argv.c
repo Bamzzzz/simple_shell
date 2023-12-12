@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
- * treat_file - treat file commands and handle their execution
- * @line: Line in file
- * @count: counter error
- * @fp: file descriptor
+ * treat_file - treat file commands
+ * @line: Line in the file
+ * @count: count errors present in the code
+ * @fp: descriptor
  * @argv: arguments
  */
 void treat_file(char *line, int count, FILE *fp, char **argv)
@@ -63,6 +63,7 @@ void exit_bul_for_file(char **cmd, char *line, FILE *fd)
 {
 int i = 0;
 int status;
+
 if (cmd[i] == NULL)
 {
 free(cmd);
@@ -73,7 +74,7 @@ exit(errno);
 while (cmd[1][i])
 {
 if (_isalpha(cmd[1][i++]) < 0)
-perror("Illegal number");
+perror("unwanted number");
 }
 status = _atoi(cmd[1]);
 free(cmd);

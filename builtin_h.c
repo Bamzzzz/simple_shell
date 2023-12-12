@@ -34,7 +34,6 @@ return (-1);
  */
 int check_builtin(char **cmd)
 {
-int i = 0;
 builtin fun[] = {
 {"cd", NULL},
 {"help", NULL},
@@ -43,6 +42,7 @@ builtin fun[] = {
 {"history", NULL},
 {NULL, NULL}
 };
+int i = 0;
 
 if (*cmd == NULL)
 {
@@ -60,13 +60,14 @@ return (-1);
  * exit_bul - exit commands for built-in
  * @cmd: command strings array
  * @input: inputs to be freed
- * @argv: Arguments before program starts
+ * @argv: arguments before program starts
  * @c: execution count
  * @stat: status exit
  */
 void exit_bul(char **cmd, char *input, char **argv, int c, int stat)
 {
 int status, i = 0;
+
 if (cmd[1] == NULL)
 {
 free(input);

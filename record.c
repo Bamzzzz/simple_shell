@@ -8,7 +8,7 @@ int history(char *input)
 {
 int len = 0;
 ssize_t fd, w;
-char *filename = ".simple_shell_history";
+char *filename = "simple_shell";
 if (!filename)
 return (-1);
 fd = open(filename, O_CREAT | O_RDWR | O_APPEND, 00600);
